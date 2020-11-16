@@ -7,6 +7,7 @@
   "scripts": {
     "test": "nyc mocha --exit -R spec  test/test-page.js 2>&1 | tee report",
     "test2": "nyc --reporter=html --reporter=text mocha",
+    "test3": "mocha test/test-page.js --reporter json --reporter-options output=report.json | tee report.json",
     "start-server": "node --max-http-header-size=65535 app.js testApp",
     "stop": "killall -SIGINT testApp",
     "ci": "start-server http://localhost:80 test"
