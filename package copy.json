@@ -5,12 +5,10 @@
   "description": "Basic hello world application for Node.js",
   "author": "Robbie Minshall <rjminsha@us.ibm.com>",
   "scripts": {
-    "test": "nyc mocha --exit -R spec  test/test-page.js 2>&1 | tee report",
-    "test2": "nyc --reporter=html --reporter=text mocha",
-    "test3": "nyc mocha test/test-page.js --reporter json --reporter-options output=report.json | tee report.json",
-    "test": "nyc --reporter=html --reporter=text mocha",
+    "test-fvt": "mocha test/fvt-test.js --reporter json --reporter-options output=test/fvt-test.json | tee test/fvt-test.json",
     "start-server": "node --max-http-header-size=65535 app.js testApp",
-    "stop": "killall -SIGINT testApp",
+    "stop-server": "killall -SIGINT testApp",
+    "test-unit": "mocha test/unit-test.js --reporter json --reporter-options output=test/unit-test.json | tee test/unit-test.json",
     "ci": "start-server http://localhost:80 test"
   },
   "dependencies": {
